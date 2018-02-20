@@ -18,7 +18,10 @@ var express         = require("express"),
 var commentRoutes       = require("./routes/comments"),
     campgroundRoutes    = require("./routes/campgrounds"),
     indexRoutes         = require("./routes/index")
-    
+
+// database backup (in case of error)    
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp"
+mongoose.connect(url);
 
 mongoose.connect(process.env.DATABASEURL);
 // mongoose.connect("mongodb://localhost/yelp_camp");
